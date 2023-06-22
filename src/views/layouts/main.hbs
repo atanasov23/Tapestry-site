@@ -17,24 +17,25 @@
   <header>
 
     <div class="contacts">
-      <img src="/images/icons8-delivery-91_1_2_40x40.png" />
+      <i class="fa-solid fa-truck fa-2xl" ></i>
       <p>Плащане при доставка</p>
     </div>
 
     <div class="contacts">
-      <img src="/images/icons8-phone-40.png" />
+      <i class="fa-solid fa-phone fa-2xl"></i>
       <p>(+359) 8978 564 23</p>
     </div>
 
     <div class="contacts">
+      <i class="fa-solid fa-address-book fa-2xl"></i>
       <a href="#">
         <p class="contact">Контакти</p>
       </a>
     </div>
 
-    <div class="contacts">
-      <img src="/images/icons8-facebook-40.png" alt="">
-      <img src="/images/icons8-instagram-40.png" alt="">
+    <div class="contacts social">
+      <i class="fa-brands fa-facebook fa-2xl"></i>
+      <i class="fa-brands fa-instagram fa-2xl"></i>
     </div>
 
   </header>
@@ -76,9 +77,17 @@
                 <a href="/login">Влизане</a>
                 <a href="/register">Регистрация</a>
                 {{else}}
+
+                {{#if admin}}
+                <a href="/Cpanel">Админ панел</a>
+                <a href="/logout">Изход</a>
+                {{else}}
                 <a href="#">Моите поръчки</a>
                 <a href="#">Любими</a>
                 <a href="/logout">Изход</a>
+                <span>{{userData.username}}</span>
+                {{/if}}
+
                 {{/unless}}
               </div>
             </div>
@@ -139,7 +148,8 @@
 
             <div class="col-auto">
 
-              <button type="submit" class="btn btn-primary mb-4" style="background: linear-gradient(90deg,#0886d3,#01a2c9); color:white">
+              <button type="submit" class="btn btn-primary mb-4"
+                style="background: linear-gradient(90deg,#0886d3,#01a2c9); color:white">
                 Абониране
               </button>
             </div>

@@ -1,5 +1,5 @@
-header{
-    background: linear-gradient(90deg,#0886d3,#01a2c9);
+header {
+    background: linear-gradient(90deg, #0886d3, #01a2c9);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -7,27 +7,29 @@ header{
     justify-content: center;
     align-items: center;
     justify-content: space-around;
-    padding-top: 1em;
+    padding-top: 0.5em;
     padding-bottom: 1em;
 }
 
-.contacts{
+i {
+    margin-right: 0.5em;
+    margin-top: 0.3em;
+}
+.social i{
+    position: relative;
+    top: -10px;
+}
+
+.contacts {
     display: flex;
     flex-direction: row;
     text-align: center;
     font-size: 17px;
     color: white;
+    padding-top: 1.5em;
+    margin: 0;
 }
 
-.contacts img {
-    margin-left: 1.2em;
-}
-
-.contacts p{
-    padding-top: 1em;
-    padding-left: 1em;
-}
-
-.contacts a{
+.contacts a {
     color: white;
 }

@@ -18,6 +18,12 @@ const authentication = async (req, res, next) => {
 
             res.locals.log = true;
 
+            if(req.user.username === 'detelina_204410'){
+                res.locals.admin = true;
+            }
+
+           
+
         } catch (err) {
 
             res.clearCookie('auth');
