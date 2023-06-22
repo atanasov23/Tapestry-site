@@ -9,9 +9,8 @@ body {
 .galeryContainer {
     margin-top: 1em;
     width: 80%;
-    height: 400px;
+    height: 350px;
     margin: 0 auto;
-    margin-top: 2em;
     overflow: hidden;
     box-shadow: -1px 5px 15px black;
     border-radius: 10px;
@@ -107,6 +106,7 @@ body {
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-bottom: 1em;
 }
 
 .shoping-Cart {

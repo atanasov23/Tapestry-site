@@ -1,44 +1,21 @@
-const offerFieldValidation = (data) => {
-
-    if (data.name.length < 2) {
-
-        throw new Error('The Name should be at least two characters');
-
-    } else if (Number(data.price) < 0) {
-
-        throw new Error('The Price should be a positive number');
-
-    } else if (!/https?:\/\//.test(data.image)) {
-
-        throw new Error('The Crypto Image should start with http:// or https://');
-
-    } else if (data.description.length < 10) {
-
-        throw new Error('The Description should be a minimum of 10 characters long');
-
-    } else {
-
-        return true;
-    }
-}
 
 const inputFielsdValidation = (data) => {
 
     if (data.username.length < 5) {
 
-        throw new Error('Username is too short');
+        throw new Error('Потребителското име е твърде кратко! Минимална дължина 5 символа.');
 
-    } else if (data.email.length < 10) {
+    } else if (!data.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
 
-        throw new Error('The email should be at least ten character long');
+        throw new Error('Невалиден имейл!');
 
     } else if (data.password.length < 4) {
 
-        throw new Error('The password should be at least four characters long');
+        throw new Error('Паролата е твърде кратка! Минимална дължина 5 символа.');
 
     } else if (data.password !== data.confirmPassword) {
 
-        throw new Error('The repeat password should be equal to the password');
+        throw new Error('Паролите не съвпадат!');
 
     } else {
 
@@ -49,6 +26,5 @@ const inputFielsdValidation = (data) => {
 }
 
 module.exports = {
-    offerFieldValidation,
     inputFielsdValidation
 }

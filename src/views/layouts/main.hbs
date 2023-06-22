@@ -14,8 +14,8 @@
 </head>
 
 <body>
-
   <header>
+
     <div class="contacts">
       <img src="/images/icons8-delivery-91_1_2_40x40.png" />
       <p>Плащане при доставка</p>
@@ -48,7 +48,9 @@
         <div class="user-tools">
 
           <div class="logo">
-            <img src="/images/detelina-i-vie-logo_350x170.png" />
+            <a href="/">
+              <img src="/images/detelina-i-vie-logo_350x170.png" />
+            </a>
           </div>
 
           <div class="d-flex justify-content-center h-100">
@@ -64,14 +66,20 @@
 
             <div class="shoping-Cart">
               <a href="/"><img src="/images/shopping-cart.256x230_30x30.png" /></a>
-              <p>3</p>
+              <p>0</p>
             </div>
 
             <div class="dropdown">
               <button class="dropbtn"></button>
               <div class="dropdown-content" style="left:0;">
-                <a href="#">Влизане</a>
-                <a href="#">Регистрация</a>
+                {{#unless log}}
+                <a href="/login">Влизане</a>
+                <a href="/register">Регистрация</a>
+                {{else}}
+                <a href="#">Моите поръчки</a>
+                <a href="#">Любими</a>
+                <a href="/logout">Изход</a>
+                {{/unless}}
               </div>
             </div>
 
@@ -131,7 +139,7 @@
 
             <div class="col-auto">
 
-              <button type="submit" class="btn btn-primary mb-4">
+              <button type="submit" class="btn btn-primary mb-4" style="background: linear-gradient(90deg,#0886d3,#01a2c9); color:white">
                 Абониране
               </button>
             </div>

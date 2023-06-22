@@ -1,6 +1,6 @@
 const homeController = require('../controllers/homeController');
 const authController = require('../controllers/authController');
-const offerController = require('../controllers/offersController');
+const tapestrysController = require('../controllers/tapestrysController');
 
 const router = require('express').Router();
 
@@ -8,11 +8,11 @@ router.use(authController);
 
 router.use(homeController);
 
-router.use(offerController);
+router.use(tapestrysController);
 
 router.get('*', (req, res) => {
 
-    res.render('offers/404');
+    res.render('tapestry-main/404', { layout: false });
 
 });
 

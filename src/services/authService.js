@@ -1,8 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
-const jsonwebtoken = require('jsonwebtoken');
 const SECRET = 'awf232daw343gse32gsgs3223gshh';
-const util = require('util');
 const myUtils = require('../utils/util');
 const fieldValidationService = require('../services/fieldValidationService');
 
@@ -44,12 +42,12 @@ const login = async (data) => {
 
         } else {
 
-            throw new Error('Email or password is incorrect');
+            throw new Error('Грешен потребител или парола!');
         }
 
     } else {
 
-        throw new Error('Email or password is incorrect');
+        throw new Error('Грешен потребител или парола');
 
     }
 
