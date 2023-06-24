@@ -6,8 +6,21 @@ router.get('/details/:id', async (req, res) => {
 
     const details = await items.getItemDetails(req.params.id);
 
-    res.render('tapestry-main/details', { details, title: details.header});
+    res.render('tapestry-main/details', { details, title: details.header });
 
+});
+
+router.post('/details/:id', (req, res) => {
+
+    items.addingToOrders(req.params.id, req.user._id, req.body.quantity);
+
+});
+
+router.get('/cart', async (req, res) => {
+
+    const myOrders = await items.getMyOrders(req.user._id);
+
+    res.render('tapestry-main/cart', { myOrders });
 });
 
 router.get('/adding', (req, res) => {
