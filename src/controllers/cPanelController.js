@@ -5,11 +5,13 @@ const validation = require('../services/fieldValidationService');
 router.get('/Cpanel', (req, res) => {
 
     res.render('tapestry-main/admin_panel');
+
 });
 
 router.get('/orders', (req, res) => {
 
     res.render('tapestry-main/orders');
+    
 });
 
 

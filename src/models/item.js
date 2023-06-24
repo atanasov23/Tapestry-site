@@ -16,6 +16,10 @@ const itemsSchema = new mongoose.Schema({
         type: String
     },
 
+    fileName: {
+        type: String
+    },
+
     owner: {
         type: String,
     }

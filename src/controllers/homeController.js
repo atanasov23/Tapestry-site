@@ -1,8 +1,11 @@
 const router = require('express').Router();
+const items = require('../services/itemService');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
 
-    res.render('home/index');
+    const tapestries = await items.getItems();
+
+    res.render('home/index', {tapestries, title: 'Гоблени'});
 
 })
 

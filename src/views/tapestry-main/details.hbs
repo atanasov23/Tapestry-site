@@ -1,0 +1,27 @@
+<div class="details">
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="/tapestry-image/{{details.fileName}}" />
+            </div>
+            <div class="tapestry-info">
+                <h3>{{details.header}}</h3>
+                <p>Размер: {{details.size}} </p>
+                <p>Цена: {{details.price}}лв</p>
+            </div>
+
+            <div class="item-order">
+                <form method="POST">
+                    <label for="quantity">Количество</label>
+                    <input type="text" name="quantity" id="quantity">
+                    <input type="submit" value="Поръчка">
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
