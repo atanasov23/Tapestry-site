@@ -222,3 +222,21 @@ body {
     background: linear-gradient(90deg, #0886d3, #01a2c9);
     color: white;
 }
+
+.form-to-add span {
+    color: red;
+    font-size: 20px;
+}
+
+.form-to-add span {
+    animation: hideAnimation 0s ease-in 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideAnimation {
+    to {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}

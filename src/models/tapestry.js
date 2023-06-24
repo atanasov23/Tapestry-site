@@ -1,39 +1,26 @@
 const mongoose = require('mongoose');
 
-const offerSchema = new mongoose.Schema({
+const tapestrySchema = new mongoose.Schema({
 
-    name: {
-        type: String,
-        required: true
+    header: {
+        type: String
     },
-    image: {
-        type: String,
-        required: true
+    size: {
+        type: String
     },
     price: {
-        type: Number,
-        required: true
+        type: String
     },
-    description: {
-        type: String,
-        required: true
-    },
-    PaymentMethod: {
-        type: String,
-        required: true
-    },
-    buyAcrypto: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'User'
-    }],
-    owner: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'User'
-    }]
 
+    category: {
+        type: String
+    },
 
+    owner: {
+        type: String,
+    }
 });
 
-const Offer = mongoose.model('Offer', offerSchema);
+const Tapestry = mongoose.model('Tapestry', tapestrySchema);
 
-module.exports = Offer;
+module.exports = Tapestry;

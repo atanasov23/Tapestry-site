@@ -25,6 +25,14 @@ const inputFielsdValidation = (data) => {
 
 }
 
+const addValidation = (data) => {
+
+    if(data.header === '' || data.size === '' || data.price === ''){
+        return true;
+    }
+}
+
 module.exports = {
-    inputFielsdValidation
+    inputFielsdValidation,
+    addValidation
 }

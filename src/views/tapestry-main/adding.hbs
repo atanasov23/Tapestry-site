@@ -12,16 +12,20 @@
 <div class="form-to-add">
 
     <h1>Добавяне на артикул</h1>
-    <form method="POST">
+    <span>{{err}}</span>
+    <form method="POST" enctype="multipart/form-data">
         <input type="file" name="file">
-        <label for="description">Описание</label>
-        <textarea name="description" id="description"></textarea>
-        <label for="description">Заглавие</label>
+        <label for="header">Заглавие</label>
         <input type="text" name="header">
-        <label for="description">Размер</label>
+        <label for="size">Размер</label>
         <input type="text" name="size">
-        <label for="description">Цена</label>
+        <label for="price">Цена</label>
         <input type="text" name="price">
+        <label for="category">Категория</label>
+        <select name="category" id="category">
+            <option value="tapestry">Гоблени</option>
+            <option value="necklace">Гердани</option>
+        </select>
         <input type="submit" value="Качване" />
     </form>
 

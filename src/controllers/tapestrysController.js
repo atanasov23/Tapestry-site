@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const tapestry = require('../services/tapestryService');
+const validation = require('../services/fieldValidationService');
 
 router.get('/Cpanel', (req, res) => {
 
@@ -18,7 +19,28 @@ router.get('/adding', (req, res) => {
 
 router.post('/adding', (req, res) => {
 
-    console.log(req.body);
+    if (req.files === null) {
+
+        res.render('tapestry-main/adding', { err: 'Няма избран файл!' });
+
+    } else {
+
+        if (validation.addValidation(req.body)) {
+
+            res.render('tapestry-main/adding', { err: 'Всички полета са задължителни!' });
+
+        } else {
+
+            const file = req.files.file;
+
+            file.mv('./src/tapestry-image/' + file.name);
+
+            tapestry.addingAtapestry(req.body);
+
+            res.redirect('/');
+
+        }
+    }
 });
 
 module.exports = router;
