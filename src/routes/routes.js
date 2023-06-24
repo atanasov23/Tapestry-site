@@ -1,6 +1,7 @@
 const homeController = require('../controllers/homeController');
 const authController = require('../controllers/authController');
-const tapestrysController = require('../controllers/tapestrysController');
+const cPanelController = require('../controllers/cPanelController');
+const itemController = require('../controllers/itemController');
 
 const router = require('express').Router();
 
@@ -8,7 +9,9 @@ router.use(authController);
 
 router.use(homeController);
 
-router.use(tapestrysController);
+router.use(cPanelController);
+
+router.use(itemController);
 
 router.get('*', (req, res) => {
 

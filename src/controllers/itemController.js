@@ -1,16 +1,6 @@
 const router = require('express').Router();
-const tapestry = require('../services/tapestryService');
+const items = require('../services/itemService');
 const validation = require('../services/fieldValidationService');
-
-router.get('/Cpanel', (req, res) => {
-
-    res.render('tapestry-main/admin_panel');
-});
-
-router.get('/orders', (req, res) => {
-
-    res.render('tapestry-main/orders');
-});
 
 router.get('/adding', (req, res) => {
 
@@ -35,7 +25,7 @@ router.post('/adding', (req, res) => {
 
             file.mv('./src/tapestry-image/' + file.name);
 
-            tapestry.addingAtapestry(req.body);
+            items.addingAnItems(req.body);
 
             res.redirect('/');
 

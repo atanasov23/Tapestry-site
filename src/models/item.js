@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const tapestrySchema = new mongoose.Schema({
+const itemsSchema = new mongoose.Schema({
 
     header: {
         type: String
@@ -21,6 +21,6 @@ const tapestrySchema = new mongoose.Schema({
     }
 });
 
-const Tapestry = mongoose.model('Tapestry', tapestrySchema);
+const Items = mongoose.model('Items', itemsSchema);
 
-module.exports = Tapestry;
+module.exports = Items;
