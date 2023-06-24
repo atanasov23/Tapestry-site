@@ -3,13 +3,17 @@ const mongoose = require('mongoose');
 const ordersSchema = new mongoose.Schema({
 
     id: {
-        type: String
+        type: String,
+        ref: 'Items'
     },
     user: {
         type: String
     },
     quantity: {
         type: String
+    },
+    dateAndTime: {
+        type: Object
     }
 });
 

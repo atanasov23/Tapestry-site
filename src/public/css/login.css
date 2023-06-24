@@ -35,5 +35,6 @@
     padding-right: 2em;
     border: none;
     background: linear-gradient(90deg, #0886d3, #01a2c9);
+    border-radius: 10px;
     color: white;
 }

@@ -18,7 +18,7 @@ const getItems = () => {
 
 const getMyOrders = async (userID) => {
 
-    return Order.find( {user: userID} ).lean();
+    return Order.find({ user: userID }).populate('id').lean();
 }
 
 const getItemDetails = async (id) => {
@@ -28,10 +28,25 @@ const getItemDetails = async (id) => {
 
 const addingToOrders = async (id, userID, quantity) => {
 
+    const date = new Date();
+
+    const dateAndTime = {
+        day: date.getDate(),
+        month: date.getDay(),
+        year: date.getFullYear(),
+        hour: date.getHours(),
+        minutes: date.getMinutes()
+    }
+
+    if(date.getMinutes() < 10){
+        dateAndTime.minutes = '0' + date.getMinutes();
+    }
+
     const data = {
         id,
         user: userID,
-        quantity
+        quantity,
+        dateAndTime
     }
 
     Order.create(data);

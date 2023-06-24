@@ -1,12 +1,16 @@
 <div class="all-orders">
     <div class="order-list">
-        <h1>Количка</h1>
+        <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #0886d3; "></i>
+        {{#unless myOrders}}
+          <p>Количката е празна.</p>
+        {{else}}
         {{#each myOrders}}
         <div class="order">
-            <p>ИД - 342431</p>
-            <p>Име на артикул - Гоблен Оскар Уайлд</p>
-            <p>Дата на поръчка - 22.06.23</p>
+            <p>ИД - {{_id}}</p>
+            <p>Име на артикул - {{id.header}}</p>
+            <p>Дата на поръчка - {{dateAndTime.day}}.{{dateAndTime.month}}.{{dateAndTime.year}} {{dateAndTime.hour}}:{{dateAndTime.minutes}}</p>
         </div>
         {{/each}}
+        {{/unless}}
     </div>
 </div>
