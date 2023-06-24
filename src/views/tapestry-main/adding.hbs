@@ -1,0 +1,28 @@
+<div class="page">
+    <nav class="page__menu menu2">
+        <ul class="menu__list r-list">
+            <li class="menu__group"><a href="/orders" class="menu__link r-link text-underlined">Поръчки</a></li>
+            <li class="menu__group"><a href="/sales" class="menu__link r-link text-underlined">Продажби</a></li>
+            <li class="menu__group"><a href="/adding" class="menu__link r-link text-underlined">Добавяне на артикул</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="form-to-add">
+
+    <h1>Добавяне на артикул</h1>
+    <form method="POST">
+        <input type="file" name="file">
+        <label for="description">Описание</label>
+        <textarea name="description" id="description"></textarea>
+        <label for="description">Заглавие</label>
+        <input type="text" name="header">
+        <label for="description">Размер</label>
+        <input type="text" name="size">
+        <label for="description">Цена</label>
+        <input type="text" name="price">
+        <input type="submit" value="Качване" />
+    </form>
+
+</div>

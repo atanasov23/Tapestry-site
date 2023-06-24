@@ -41,6 +41,8 @@
 .menu__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu__link {
@@ -157,24 +159,66 @@ body {
     flex-wrap: wrap;
 }
 
-.order{
+.order {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1em;
     margin: 1em;
     border: 1px solid;
-    background: linear-gradient(90deg,#0886d3,#01a2c9);
+    background: linear-gradient(90deg, #0886d3, #01a2c9);
     color: white;
     font-size: 20px;
 }
 
-.order-list h1{
-text-align: center;
+.order-list h1 {
+    text-align: center;
 }
 
-.order p{
+.order p {
     margin: 1em;
     padding-right: 1em;
     border-right: 1px solid;
+}
+
+.form-to-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    flex-direction: column;
+
+}
+
+.form-to-add form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+}
+
+.form-to-add label {
+    margin-top: 2em;
+}
+
+.form-to-add input {
+    margin: 0;
+}
+
+.form-to-add input[type=file] {
+    background: linear-gradient(90deg, #0886d3, #01a2c9);
+    color: white;
+}
+
+.form-to-add [type="submit"] {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border: none;
+    background: linear-gradient(90deg, #0886d3, #01a2c9);
+    color: white;
 }
