@@ -5,7 +5,9 @@ router.get('/', async (req, res) => {
 
     const tapestries = await items.getItems();
 
-    res.render('home/index', {tapestries, title: 'Гоблени'});
+    const myOrdersCount = await items.getMyOrdersNumber(req.user._id);
+
+    res.render('home/index', {tapestries, title: 'Гоблени', ordersCounter: myOrdersCount.length});
 
 })
 

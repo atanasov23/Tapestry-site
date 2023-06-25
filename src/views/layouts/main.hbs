@@ -67,7 +67,13 @@
 
             <div class="shoping-Cart">
               <a href="/cart"><i class="fa-solid fa-cart-arrow-down fa-2x" style="color: #0886d3;"></i></a>
-              <p>0</p>
+              <p>
+                {{#unless ordersCounter}}
+                0
+                {{else}}
+                {{ordersCounter}}
+                {{/unless}}
+              </p>
             </div>
 
             <div class="dropdown">

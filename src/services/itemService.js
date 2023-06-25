@@ -1,7 +1,12 @@
 const Items = require('../models/item');
 const Order = require('../models/order');
 
-const addingAnItems = (data, file) => {
+const getMyOrdersNumber = async (userID) => {
+
+    return await Order.find({ user: userID }).populate('id').lean();
+}
+
+const addingAnItems = (data, file) => { 
 
     data.owner = 'detelina_204410';
 
@@ -38,7 +43,7 @@ const addingToOrders = async (id, userID, quantity) => {
         minutes: date.getMinutes()
     }
 
-    if(date.getMinutes() < 10){
+    if (date.getMinutes() < 10) {
         dateAndTime.minutes = '0' + date.getMinutes();
     }
 
@@ -52,10 +57,17 @@ const addingToOrders = async (id, userID, quantity) => {
     Order.create(data);
 }
 
+const removeFromOrders = async (id) => {
+
+   await Order.deleteOne({ _id: id })
+}
+
 module.exports = {
     addingAnItems,
     getItems,
     getItemDetails,
     addingToOrders,
-    getMyOrders
+    getMyOrders,
+    removeFromOrders,
+    getMyOrdersNumber
 }

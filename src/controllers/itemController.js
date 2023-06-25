@@ -22,7 +22,16 @@ router.get('/cart', async (req, res) => {
 
     const myOrders = await items.getMyOrders(req.user._id);
 
-    res.render('tapestry-main/cart', { myOrders });
+    const myOrdersCount = await items.getMyOrdersNumber(req.user._id);
+
+    res.render('tapestry-main/cart', { myOrders, ordersCounter: myOrdersCount.length });
+});
+
+router.get('/remove/:id', (req, res) => {
+
+    items.removeFromOrders(req.params.id);
+
+    res.redirect('/cart');
 });
 
 router.get('/adding', (req, res) => {
