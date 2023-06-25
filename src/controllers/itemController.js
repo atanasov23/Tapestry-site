@@ -37,10 +37,17 @@ router.get('/cart', routesGuard.routeGuard, async (req, res) => {
 
 router.get('/remove/:id', routesGuard.routeGuard, (req, res) => {
 
-    items.removeFromOrders(req.params.id);
+    items.removeFromOrders(req.params.id, req.user._id);
 
     res.redirect('/cart');
 });
+
+router.get('/emptyCart', (req, res) => {
+
+    items.emptyCart(req.user._id);
+
+    res.redirect('/cart');
+})
 
 router.get('/adding', routesGuard.routeGuard, (req, res) => {
 

@@ -6,7 +6,7 @@ const getMyOrdersNumber = async (userID) => {
     return await Order.find({ user: userID }).populate('id').lean();
 }
 
-const addingAnItems = (data, file) => { 
+const addingAnItems = (data, file) => {
 
     data.owner = 'detelina_204410';
 
@@ -57,9 +57,18 @@ const addingToOrders = async (id, userID, quantity) => {
     Order.create(data);
 }
 
-const removeFromOrders = async (id) => {
+const removeFromOrders = async (id, userID) => {
 
-   await Order.deleteOne({ _id: id })
+    /* Order.deleteOne({ _id: id }) */
+
+    await Order.find({ user: userID }).deleteOne({ _id: id });
+
+}
+
+const emptyCart = async (userID) => {
+
+    await Order.find({ user: userID }).deleteMany();
+
 }
 
 module.exports = {
@@ -69,5 +78,6 @@ module.exports = {
     addingToOrders,
     getMyOrders,
     removeFromOrders,
-    getMyOrdersNumber
+    getMyOrdersNumber,
+    emptyCart
 }

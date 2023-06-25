@@ -9,7 +9,7 @@ router.get('/Cpanel', routesGuard.CpanelGuard, (req, res) => {
 
 });
 
-router.get('/orders', (req, res) => {
+router.get('/orders', routesGuard.CpanelGuard, (req, res) => {
 
     res.render('tapestry-main/orders');
 
