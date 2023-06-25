@@ -7,7 +7,15 @@ router.get('/', async (req, res) => {
 
     const myOrdersCount = await items.getMyOrdersNumber(req.user._id);
 
-    res.render('home/index', {tapestries, title: 'Гоблени', ordersCounter: myOrdersCount.length});
+    if (req.user.id === 0) {
+
+        res.render('home/index', { tapestries, title: 'Гоблени', ordersCounter: 0 });
+
+    } else {
+
+        res.render('home/index', { tapestries, title: 'Гоблени', ordersCounter: myOrdersCount.length });
+
+    }
 
 })
 

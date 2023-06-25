@@ -65,6 +65,7 @@
 
           <div class="menu">
 
+            {{#unless admin}}
             <div class="shoping-Cart">
               <a href="/cart"><i class="fa-solid fa-cart-arrow-down fa-2x" style="color: #0886d3;"></i></a>
               <p>
@@ -75,6 +76,7 @@
                 {{/unless}}
               </p>
             </div>
+            {{/unless}}
 
             <div class="dropdown">
               <i class="fa-sharp fa-solid fa-bars fa-2x" style="color: #0886d3;"></i>

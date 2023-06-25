@@ -14,9 +14,12 @@
         </div>
         {{/each}}
         {{/unless}}
+
+       {{#if ordersCounter}}
         <div class="order-buttons">
             <a href="/confirm">Завършване на поръчката</a>
             <a href="/emptyCart">Изчистете количката</a>
         </div>
+        {{/if}}
     </div>
 </div>

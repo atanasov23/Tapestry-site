@@ -13,11 +13,15 @@
             </div>
 
             <div class="item-order">
+                {{#unless admin}}
+                {{#if log}}
                 <form method="POST">
                     <label for="quantity">Количество</label>
                     <input type="text" name="quantity" id="quantity">
                     <input type="submit" value="Поръчка">
                 </form>
+                {{/if}}
+                {{/unless}}
             </div>
 
         </div>

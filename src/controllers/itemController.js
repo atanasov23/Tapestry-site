@@ -1,12 +1,20 @@
 const router = require('express').Router();
 const items = require('../services/itemService');
 const validation = require('../services/fieldValidationService');
+const routesGuard = require('../middlewares/routesGuard');
 
 router.get('/details/:id', async (req, res) => {
 
     const details = await items.getItemDetails(req.params.id);
 
-    res.render('tapestry-main/details', { details, title: details.header });
+    let admin = false;
+
+    if (req.user.username === 'detelina_204410') {
+
+        admin = true;
+    }
+
+    res.render('tapestry-main/details', { details, title: details.header, admin });
 
 });
 
@@ -18,7 +26,7 @@ router.post('/details/:id', (req, res) => {
 
 });
 
-router.get('/cart', async (req, res) => {
+router.get('/cart', routesGuard.routeGuard, async (req, res) => {
 
     const myOrders = await items.getMyOrders(req.user._id);
 
@@ -27,19 +35,19 @@ router.get('/cart', async (req, res) => {
     res.render('tapestry-main/cart', { myOrders, ordersCounter: myOrdersCount.length });
 });
 
-router.get('/remove/:id', (req, res) => {
+router.get('/remove/:id', routesGuard.routeGuard, (req, res) => {
 
     items.removeFromOrders(req.params.id);
 
     res.redirect('/cart');
 });
 
-router.get('/adding', (req, res) => {
+router.get('/adding', routesGuard.routeGuard, (req, res) => {
 
     res.render('tapestry-main/adding');
 });
 
-router.post('/adding', (req, res) => {
+router.post('/adding', routesGuard.routeGuard, (req, res) => {
 
     if (req.files === null) {
 
