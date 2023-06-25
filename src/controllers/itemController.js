@@ -14,6 +14,8 @@ router.post('/details/:id', (req, res) => {
 
     items.addingToOrders(req.params.id, req.user._id, req.body.quantity);
 
+    res.redirect('/cart');
+
 });
 
 router.get('/cart', async (req, res) => {

@@ -2,15 +2,21 @@
     <div class="order-list">
         <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #0886d3; "></i>
         {{#unless myOrders}}
-          <p>Количката е празна.</p>
+        <p>Количката е празна.</p>
         {{else}}
         {{#each myOrders}}
         <div class="order">
             <p>ИД - {{_id}}</p>
             <p>Име на артикул - {{id.header}}</p>
-            <p>Дата на поръчка - {{dateAndTime.day}}.{{dateAndTime.month}}.{{dateAndTime.year}} {{dateAndTime.hour}}:{{dateAndTime.minutes}}</p>
+            <p>Дата на поръчка - {{dateAndTime.day}}.{{dateAndTime.month}}.{{dateAndTime.year}}
+                {{dateAndTime.hour}}:{{dateAndTime.minutes}}</p>
+            <a href="/remove">Премахни</a>
         </div>
         {{/each}}
         {{/unless}}
+        <div class="order-buttons">
+            <a href="/confirm">Завършване на поръчката</a>
+            <a href="/emptyCart">Изчистете количката</a>
+        </div>
     </div>
 </div>
