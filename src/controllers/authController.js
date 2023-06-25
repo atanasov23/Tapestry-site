@@ -15,6 +15,11 @@ router.get('/login', (req, res) => {
 
 router.post('/login', async (req, res) => {
 
+    if (res.cookie['cart'] == undefined) {
+        console.log(20);
+        res.cookie('cart', { id: [] });
+    }
+
     try {
 
         const token = await login(req.body);

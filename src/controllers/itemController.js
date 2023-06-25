@@ -7,6 +7,8 @@ router.get('/details/:id', async (req, res) => {
 
     const details = await items.getItemDetails(req.params.id);
 
+    const myOrdersCount = await items.getMyOrdersNumber(req.user._id);
+
     let admin = false;
 
     if (req.user.username === 'detelina_204410') {
@@ -14,11 +16,17 @@ router.get('/details/:id', async (req, res) => {
         admin = true;
     }
 
-    res.render('tapestry-main/details', { details, title: details.header, admin });
+    res.render('tapestry-main/details', { details, title: details.header, admin, ordersCounter: myOrdersCount.length });
 
 });
 
 router.post('/details/:id', (req, res) => {
+
+    const cartCookie = req.cookies['cart'];
+
+    cartCookie.id.push(req.params.id);
+
+    res.cookie('cart', cartCookie);
 
     items.addingToOrders(req.params.id, req.user._id, req.body.quantity);
 
