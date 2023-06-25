@@ -37,7 +37,7 @@ const addingToOrders = async (id, userID, quantity) => {
 
     const dateAndTime = {
         day: date.getDate(),
-        month: date.getDay(),
+        month: date.getMonth() + 1,
         year: date.getFullYear(),
         hour: date.getHours(),
         minutes: date.getMinutes()
