@@ -9,7 +9,7 @@ const fileUpload = require('express-fileupload');
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb://localhost:27017/tapestry', () => console.log('successful database connection'));
+mongoose.connect('mongodb://127.0.0.1:27017/tapestry', () => console.log('successful database connection'));
 
 const app = express();
 
